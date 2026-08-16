@@ -1,0 +1,207 @@
+/* =========================================================
+   VIVEK_OS — WINDOWS XP POINTER
+   Separate global pointer stylesheet
+   ========================================================= */
+
+:root {
+  --xp-pointer-blue: #075aa1;
+  --xp-pointer-light: #69b8f1;
+  --xp-pointer-dark: #063d6b;
+  --xp-pointer-shadow: rgba(0, 0, 0, .42);
+}
+
+/* Hide the native pointer while the custom XP pointer is active */
+html.xp-pointer-active,
+html.xp-pointer-active body,
+html.xp-pointer-active body * {
+  cursor: none !important;
+}
+
+/* Custom pointer */
+.xp-pointer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 24px;
+  z-index: 100000;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-100px, -100px, 0);
+  transition:
+    opacity .12s ease,
+    transform .08s linear;
+  will-change: transform;
+}
+
+/* Classic white XP arrow */
+.xp-pointer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 2px solid #111;
+  border-left: 2px solid #111;
+  border-right: 10px solid transparent;
+  border-bottom: 14px solid transparent;
+  transform: rotate(-2deg);
+  filter: drop-shadow(1px 2px 0 var(--xp-pointer-shadow));
+}
+
+/* White arrow face */
+.xp-pointer::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 0;
+  height: 0;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 8px solid #fff;
+  border-bottom: 12px solid transparent;
+  transform: rotate(-2deg);
+}
+
+/* Small blue pixel tail / XP accent */
+.xp-pointer-tail {
+  position: absolute;
+  left: 9px;
+  top: 14px;
+  width: 4px;
+  height: 7px;
+  background: var(--xp-pointer-blue);
+  border: 1px solid #fff;
+  box-shadow: 1px 1px 0 #111;
+  transform: rotate(18deg);
+}
+
+/* Pointer visible after first mouse movement */
+.xp-pointer.is-visible {
+  opacity: 1;
+}
+
+/* Click animation */
+.xp-pointer.is-clicking {
+  animation: xpPointerClick .32s steps(3, end);
+}
+
+.xp-pointer.is-clicking::before {
+  filter:
+    drop-shadow(1px 2px 0 var(--xp-pointer-shadow))
+    brightness(1.25);
+}
+
+@keyframes xpPointerClick {
+  0%   { transform: translate3d(var(--xp-x), var(--xp-y), 0) scale(1); }
+  35%  { transform: translate3d(var(--xp-x), var(--xp-y), 0) scale(.78); }
+  65%  { transform: translate3d(var(--xp-x), var(--xp-y), 0) scale(1.08); }
+  100% { transform: translate3d(var(--xp-x), var(--xp-y), 0) scale(1); }
+}
+
+/* Hovering a link/button = classic XP hand treatment */
+html.xp-pointer-active a:hover,
+html.xp-pointer-active button:hover,
+html.xp-pointer-active [role="button"]:hover,
+html.xp-pointer-active .desktop-icon:hover,
+html.xp-pointer-active .taskbar-item:hover {
+  cursor: none !important;
+}
+
+.xp-pointer.is-link::before {
+  /* compact white hand-like XP hover marker */
+  width: 13px;
+  height: 17px;
+  border: 2px solid #111;
+  background:
+    linear-gradient(#fff,#fff) 4px 0 / 5px 11px no-repeat,
+    linear-gradient(#fff,#fff) 0 8px / 13px 8px no-repeat;
+  clip-path: polygon(
+    20% 0, 42% 0, 42% 43%,
+    51% 28%, 60% 30%, 58% 49%,
+    68% 38%, 77% 42%, 72% 57%,
+    84% 49%, 92% 55%, 79% 72%,
+    67% 88%, 46% 100%, 22% 84%, 5% 58%, 5% 43%,
+    20% 48%
+  );
+  transform: rotate(-3deg);
+  box-shadow: 1px 2px 0 #111;
+}
+
+.xp-pointer.is-link::after {
+  display: none;
+}
+
+/* Busy/loading state */
+.xp-pointer.is-busy {
+  width: 22px;
+  height: 22px;
+}
+
+.xp-pointer.is-busy::before {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,.35);
+  border-top-color: #fff;
+  border-right-color: #2f8fd0;
+  border-radius: 50%;
+  transform: none;
+  animation: xpPointerSpin .65s steps(8, end) infinite;
+  filter: drop-shadow(1px 1px 0 #111);
+}
+
+.xp-pointer.is-busy::after {
+  display: none;
+}
+
+@keyframes xpPointerSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tiny trail for the retro "desktop" feel */
+.xp-pointer-trail {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  z-index: 99999;
+  pointer-events: none;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(7,90,161,.8);
+  box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  animation: xpPointerTrail .35s steps(4, end) forwards;
+}
+
+@keyframes xpPointerTrail {
+  0% {
+    opacity: .75;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(.15);
+  }
+}
+
+/* Don't force a custom cursor on touch devices */
+@media (pointer: coarse) {
+  html.xp-pointer-active,
+  html.xp-pointer-active body,
+  html.xp-pointer-active body * {
+    cursor: auto !important;
+  }
+
+  .xp-pointer,
+  .xp-pointer-trail {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xp-pointer,
+  .xp-pointer-trail {
+    animation: none !important;
+    transition: none !important;
+  }
+}
