@@ -579,7 +579,7 @@ ${message}
                   key={project.name}
                   role="button"
                   tabIndex={0}
-                  onDoubleClick={() => {
+                  onClick={() => {
                     if (project.github) {
                       window.open(project.github, "_blank", "noopener,noreferrer");
                     }
@@ -617,7 +617,7 @@ ${message}
             </div>
 
             <div className="explorer-footer">
-              Double-click a project to open its GitHub repository.
+              Click a project to open its GitHub repository.
             </div>
           </div>
         );
@@ -725,7 +725,7 @@ ${message}
             <div className="document-grid">
               <div
                 className="document-card"
-                onDoubleClick={() => openWindow("certificates")}
+                onClick={() => openWindow("certificates")}
               >
                 <div className="document-icon">🏆</div>
                 <strong>Certificates</strong>
@@ -1168,69 +1168,69 @@ ${message}
           AVAILABLE FOR OPPORTUNITIES
         </div>
 
-        <div className="explore-hint">DOUBLE CLICK TO EXPLORE</div>
+        <div className="explore-hint">CLICK TO EXPLORE</div>
       </div>
 
       <nav className="desktop-icons">
         <DesktopIcon
           icon="▣"
           label="MY WORK"
-          onDoubleClick={() => openWindow("work")}
+          onClick={() => openWindow("work")}
         />
 
         <DesktopIcon
           icon="?"
           label="ABOUT"
-          onDoubleClick={() => openWindow("about")}
+          onClick={() => openWindow("about")}
         />
 
         <DesktopIcon
           icon="⌘"
           label="EXPERIMENTS"
-          onDoubleClick={() => openWindow("experiments")}
+          onClick={() => openWindow("experiments")}
         />
 
         <DesktopIcon
           icon="▰"
           label="TERMINAL"
-          onDoubleClick={() => openWindow("terminal")}
+          onClick={() => openWindow("terminal")}
         />
 
         <DesktopIcon
           icon="▤"
           label="README.TXT"
-          onDoubleClick={() => openWindow("readme")}
+          onClick={() => openWindow("readme")}
         />
 
         <DesktopIcon
           icon="⚙"
           label="TOOLBOX"
-          onDoubleClick={() => openWindow("toolbox")}
+          onClick={() => openWindow("toolbox")}
         />
 
         <DesktopIcon
           icon="📁"
           label="DOCUMENTS"
-          onDoubleClick={() => openWindow("documents")}
+          onClick={() => openWindow("documents")}
         />
 
         <DesktopIcon
           icon="🏆"
           label="CERTIFICATES"
-          onDoubleClick={() => openWindow("certificates")}
+          onClick={() => openWindow("certificates")}
         />
 
         <DesktopIcon
           icon="@"
           label="CONTACT"
-          onDoubleClick={() => openWindow("contact")}
+          onClick={() => openWindow("contact")}
         />
 
         <DesktopIcon
           icon="★"
           label="HIRE ME"
           accent
-          onDoubleClick={() => openWindow("hire")}
+          onClick={() => openWindow("hire")}
         />
       </nav>
 
@@ -1451,12 +1451,12 @@ function DesktopIcon({
   icon,
   label,
   accent,
-  onDoubleClick,
+  onClick,
 }: {
   icon: string;
   label: string;
   accent?: boolean;
-  onDoubleClick: () => void;
+  onClick: () => void;
 }) {
   // GitHub and LinkedIn belong inside CONTACT, not on the desktop.
   // This guard also prevents them from reappearing if an older nav entry remains.
@@ -1465,7 +1465,7 @@ function DesktopIcon({
   return (
     <button
       className={`desktop-icon ${accent ? "desktop-icon-accent" : ""}`}
-      onDoubleClick={onDoubleClick}
+      onClick={onClick}
     >
       <span className="desktop-icon-box">{icon}</span>
       <span>{label}</span>
