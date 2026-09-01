@@ -215,7 +215,7 @@ const initialWindows: WinState[] = [
     y: 70,
     width: 1080,
     height: 650,
-    z: 1,
+    z: 101,
   },
   {
     id: "about",
@@ -228,7 +228,7 @@ const initialWindows: WinState[] = [
     y: 90,
     width: 940,
     height: 600,
-    z: 2,
+    z: 102,
   },
   {
     id: "toolbox",
@@ -241,7 +241,7 @@ const initialWindows: WinState[] = [
     y: 90,
     width: 850,
     height: 620,
-    z: 3,
+    z: 103,
   },
   {
     id: "documents",
@@ -254,7 +254,7 @@ const initialWindows: WinState[] = [
     y: 100,
     width: 760,
     height: 500,
-    z: 4,
+    z: 104,
   },
   {
     id: "certificates",
@@ -267,7 +267,7 @@ const initialWindows: WinState[] = [
     y: 110,
     width: 800,
     height: 560,
-    z: 5,
+    z: 105,
   },
   {
     id: "achievements",
@@ -280,7 +280,7 @@ const initialWindows: WinState[] = [
     y: 120,
     width: 820,
     height: 580,
-    z: 6,
+    z: 106,
   },
   {
     id: "terminal",
@@ -293,7 +293,7 @@ const initialWindows: WinState[] = [
     y: 100,
     width: 820,
     height: 540,
-    z: 7,
+    z: 107,
   },
   {
     id: "experiments",
@@ -306,7 +306,7 @@ const initialWindows: WinState[] = [
     y: 80,
     width: 900,
     height: 570,
-    z: 8,
+    z: 108,
   },
   {
     id: "readme",
@@ -319,7 +319,7 @@ const initialWindows: WinState[] = [
     y: 120,
     width: 780,
     height: 580,
-    z: 9,
+    z: 109,
   },
   {
     id: "contact",
@@ -332,7 +332,7 @@ const initialWindows: WinState[] = [
     y: 80,
     width: 820,
     height: 620,
-    z: 10,
+    z: 110,
   },
   {
     id: "hire",
@@ -345,7 +345,7 @@ const initialWindows: WinState[] = [
     y: 80,
     width: 780,
     height: 650,
-    z: 11,
+    z: 111,
   },
 ];
 
@@ -355,7 +355,7 @@ export default function Home() {
   const [startOpen, setStartOpen] = useState(false);
   const [time, setTime] = useState("");
   const [windows, setWindows] = useState<WinState[]>(initialWindows);
-  const [topZ, setTopZ] = useState(20);
+  const [topZ, setTopZ] = useState(120);
 
   const dragRef = useRef<DragState | null>(null);
   const resizeRef = useRef<ResizeState | null>(null);
