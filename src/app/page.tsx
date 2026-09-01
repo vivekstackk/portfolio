@@ -9,6 +9,7 @@ type WindowId =
   | "toolbox"
   | "documents"
   | "certificates"
+  | "achievements"
   | "terminal"
   | "experiments"
   | "readme"
@@ -46,33 +47,36 @@ type ResizeState = {
 const projects = [
   {
     number: "01",
-    category: "BACKEND SYSTEM",
-    name: "Feature Flag Platform",
+    category: "FULL-STACK PRODUCT",
+    name: "SeatWise",
     description:
-      "A backend platform for controlled feature releases, experimentation, targeting and reliable configuration delivery.",
-    stack: ["TypeScript", "Fastify", "PostgreSQL", "Redis"],
-    status: "BUILDING",
-    github: "https://github.com/vivekstackk/feature-flag-platform",
+      "Full-stack event ticketing platform with interactive seat maps, dynamic pricing, and real-time checkout. Eliminated double-booking under concurrency with atomic PostgreSQL transactions (SELECT FOR UPDATE) and integrated Stripe Checkout with server-verifiable QR check-in.",
+    stack: ["Next.js", "PostgreSQL (Neon)", "Drizzle ORM", "Stripe", "Better-Auth"],
+    status: "LIVE / BUILDING",
+    github: "https://github.com/vivekstackk/seatwise",
+    live: "https://seatwise.onrender.com",
   },
   {
     number: "02",
-    category: "DISTRIBUTED SYSTEM",
-    name: "Job Scheduler",
+    category: "BACKEND MICROSERVICE",
+    name: "FlagWise",
     description:
-      "A backend scheduling system exploring workers, leases, locking, scheduled execution and failure recovery.",
-    stack: ["TypeScript", "Fastify", "PostgreSQL", "Docker"],
-    status: "BUILDING",
-    github: "https://github.com/vivekstackk/job-scheduler",
+      "Feature-flag microservice with REST APIs for flag configuration, targeting rules, and rollout percentages. Redis caching layer cuts flag evaluation latency to under 5ms. Production-ready with Docker Compose and 27+ Jest test suites at 90%+ code coverage.",
+    stack: ["TypeScript", "Fastify", "PostgreSQL", "Redis", "Docker"],
+    status: "LIVE / COMPLETED",
+    github: "https://github.com/vivekstackk/flagwise",
+    live: "https://feature-flag-dashboard.onrender.com",
   },
   {
     number: "03",
-    category: "FULL-STACK PRODUCT",
-    name: "Seatwise",
+    category: "DISTRIBUTED SYSTEM",
+    name: "Distributed Job Scheduler",
     description:
-      "A modern full-stack application focused on product experience, clean architecture and reliable data handling.",
-    stack: ["Next.js", "TypeScript", "PostgreSQL"],
-    status: "BUILDING",
-    github: "https://github.com/vivekstackk/seatwise",
+      "Distributed cron-style job scheduler backed by a persistent PostgreSQL queue. Eliminated multi-worker race conditions with SKIP LOCKED locking and heartbeat lease renewals, featuring exponential backoff retries and Dead-Letter Queue.",
+    stack: ["Node.js", "TypeScript", "PostgreSQL", "Docker Compose"],
+    status: "LIVE / COMPLETED",
+    github: "https://github.com/vivekstackk/job-scheduler",
+    live: "https://jobscheduler-150z.onrender.com",
   },
   {
     number: "04",
@@ -80,7 +84,7 @@ const projects = [
     name: "SkillSwap",
     description:
       "A peer learning platform connecting people to exchange knowledge and skills through a modern web experience.",
-    stack: ["React", "Next.js", "MongoDB"],
+    stack: ["React", "Next.js", "MongoDB", "Tailwind CSS"],
     status: "LIVE / BUILDING",
     github: "https://github.com/vivekstackk/skillswap",
   },
@@ -90,19 +94,114 @@ const projects = [
     name: "Cinemate",
     description:
       "A responsive movie discovery application with search, detailed information and API-driven content.",
-    stack: ["React", "Firebase", "TMDB API"],
+    stack: ["React", "Firebase", "TMDB API", "Tailwind CSS"],
     status: "COMPLETED",
     github: "https://github.com/vivekstackk/cinemate",
   },
 ];
 
 const toolbox = {
-  "FRONTEND": ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"],
-  "BACKEND": ["Node.js", "Fastify", "Express", "REST APIs"],
-  "DATABASE": ["PostgreSQL", "MongoDB", "Firebase"],
-  "TOOLS": ["Git", "GitHub", "VS Code", "Postman", "Docker"],
-  "CURRENTLY EXPLORING": ["System Design", "Distributed Systems", "Backend Architecture"],
+  "LANGUAGES": ["TypeScript", "JavaScript (ES6+)", "Python", "C++", "SQL", "HTML5", "CSS3"],
+  "FRONTEND": ["React.js", "Next.js (App Router)", "Tailwind CSS", "Responsive UI/UX"],
+  "BACKEND & APIS": ["Node.js", "Fastify", "Express.js", "RESTful APIs", "Better-Auth", "Stripe API"],
+  "DATABASES & DEVOPS": ["PostgreSQL", "Neon DB", "Drizzle ORM", "Redis", "Docker", "Docker Compose", "Git", "Jest", "Linux"],
+  "RELEVANT COURSEWORK": ["Data Structures & Algorithms", "Database Management Systems", "Object Oriented Programming", "Operating Systems", "Computer Networks", "System Design"],
 };
+
+const certificates = [
+  {
+    number: "01",
+    title: "Data Analyst Internship Certificate",
+    issuer: "Gazebo Labs Private Limited (IIT Bhubaneswar Research Park)",
+    division: "Data & Business Intelligence Division · Bhubaneswar, India",
+    duration: "June 2026 – Aug 2026",
+    description:
+      "Completed 2-month internship validating telemetry and sensor data from smart IoT aquaculture devices, developing real-time Python/SQL dashboards, and automating analytical reporting pipelines (cutting turnaround by 70%).",
+    url: "https://drive.google.com/file/d/1cuA7EH0zP8XGkJlcUsvrSt4YoMfjXAZa/view?usp=drive_link",
+    status: "VERIFIED / DRIVE ↗",
+    icon: "💼",
+  },
+  {
+    number: "02",
+    title: "Hack Innovision — National Hackathon Certificate",
+    issuer: "National Institute of Technology, Rourkela",
+    division: "36-Hour National Hackathon",
+    duration: "National Hackathon",
+    description:
+      "Participated in the intensive 36-hour annual national hackathon at NIT Rourkela, prototyping and delivering full-stack software solutions under time constraints.",
+    url: "https://drive.google.com/file/d/1DsQNWBDXfpDOPA77AW19Hk4D9wjXRnR0/view?usp=sharing",
+    status: "VERIFIED / DRIVE ↗",
+    icon: "🏆",
+  },
+  {
+    number: "03",
+    title: "Official Resume / Curriculum Vitae",
+    issuer: "Vivek Damar · NIT Rourkela",
+    division: "Full-Time & SDE Internship Resume",
+    duration: "Updated 2026",
+    description:
+      "Complete resume detailing engineering projects, technical stack, distributed systems experience, academic record, and contact details.",
+    url: "/VIVEKDAMAR_FTE_RESUME.pdf",
+    status: "PDF DOCUMENT ↗",
+    icon: "📄",
+  },
+  {
+    number: "04",
+    title: "Problem Setter Recognition — The Timeless Saga",
+    issuer: "Algorithmic & Programming Society, NIT Rourkela",
+    division: "Competitive Programming Division",
+    duration: "Flagship Contest",
+    description:
+      "Curated 30+ competitive programming challenges testing algorithmic logic, data structures, and mathematical optimization for the society's premier contest.",
+    status: "RECOGNITION",
+    icon: "🧩",
+  },
+];
+
+const achievements = [
+  {
+    number: "01",
+    title: "Problem Setter — The Timeless Saga",
+    organization: "Algorithmic & Programming Society, NIT Rourkela",
+    badge: "COMPETITIVE PROGRAMMING",
+    description:
+      "Curated 30+ competitive programming challenges for the society's flagship algorithmic contest. Designed problem test suites and edge cases covering trees, dynamic programming, and graph algorithms.",
+    date: "Flagship Contest",
+    icon: "🧩",
+  },
+  {
+    number: "02",
+    title: "Hack Innovision Hackathon Participant",
+    organization: "National Institute of Technology, Rourkela",
+    badge: "NATIONAL HACKATHON",
+    description:
+      "Participated in the 36-hour annual national hackathon at NIT Rourkela, collaborating to design, architect, and prototype full-stack software solutions under time constraints.",
+    date: "36-Hour Sprint",
+    url: "https://drive.google.com/file/d/1DsQNWBDXfpDOPA77AW19Hk4D9wjXRnR0/view?usp=sharing",
+    icon: "🏆",
+  },
+  {
+    number: "03",
+    title: "Data Analyst Intern @ Gazebo Labs",
+    organization: "IIT Bhubaneswar Research Park",
+    badge: "WORK EXPERIENCE",
+    description:
+      "Selected as Data Analyst Intern in Data & Business Intelligence Division. Built real-time IoT device health monitoring dashboards and automated reporting pipelines, reducing manual reporting turnaround by 70%.",
+    date: "June 2026 – Aug 2026",
+    url: "https://drive.google.com/file/d/1cuA7EH0zP8XGkJlcUsvrSt4YoMfjXAZa/view?usp=drive_link",
+    icon: "💼",
+  },
+  {
+    number: "04",
+    title: "Academic Excellence & Navodaya Alumnus",
+    organization: "NIT Rourkela & JNV Jhabua",
+    badge: "ACADEMICS",
+    description:
+      "Pursuing B.Tech in Computer Science and Engineering at NIT Rourkela (CGPA: 6.59). Completed Class XII CBSE Science PCM with 81.2% and Class X with 87.2% at Jawahar Navodaya Vidyalaya.",
+    date: "2019 – 2027",
+    icon: "🎓",
+  },
+];
 
 const initialWindows: WinState[] = [
   {
@@ -166,9 +265,22 @@ const initialWindows: WinState[] = [
     maximized: false,
     x: 250,
     y: 110,
-    width: 780,
-    height: 540,
+    width: 800,
+    height: 560,
     z: 5,
+  },
+  {
+    id: "achievements",
+    title: "Achievements",
+    icon: "⭐",
+    open: false,
+    minimized: false,
+    maximized: false,
+    x: 270,
+    y: 120,
+    width: 820,
+    height: 580,
+    z: 6,
   },
   {
     id: "terminal",
@@ -181,7 +293,7 @@ const initialWindows: WinState[] = [
     y: 100,
     width: 820,
     height: 540,
-    z: 6,
+    z: 7,
   },
   {
     id: "experiments",
@@ -194,7 +306,7 @@ const initialWindows: WinState[] = [
     y: 80,
     width: 900,
     height: 570,
-    z: 7,
+    z: 8,
   },
   {
     id: "readme",
@@ -205,9 +317,9 @@ const initialWindows: WinState[] = [
     maximized: false,
     x: 260,
     y: 120,
-    width: 760,
-    height: 550,
-    z: 8,
+    width: 780,
+    height: 580,
+    z: 9,
   },
   {
     id: "contact",
@@ -220,7 +332,7 @@ const initialWindows: WinState[] = [
     y: 80,
     width: 820,
     height: 620,
-    z: 9,
+    z: 10,
   },
   {
     id: "hire",
@@ -233,7 +345,7 @@ const initialWindows: WinState[] = [
     y: 80,
     width: 780,
     height: 650,
-    z: 10,
+    z: 11,
   },
 ];
 
@@ -511,32 +623,58 @@ ${message}
       output = [
         "AVAILABLE COMMANDS",
         "------------------",
-        "about       → about Vivek",
-        "projects    → show projects",
-        "stack       → show technology stack",
-        "contact     → contact information",
-        "hire        → open hiring window",
-        "clear       → clear terminal",
+        "about          → about Vivek",
+        "projects       → show projects",
+        "stack          → show technology stack",
+        "experience     → show work experience",
+        "certificates   → open certificates window",
+        "achievements   → open achievements window",
+        "resume         → open resume PDF",
+        "contact        → contact information",
+        "hire           → open hiring window",
+        "clear          → clear terminal",
       ];
     } else if (command === "about") {
       output = [
         "Vivek Damar",
-        "Full-Stack Developer",
-        "Computer Science student @ NIT Rourkela",
-        "Building web products, backend systems and experiments.",
+        "Full-Stack Developer & Software Engineer",
+        "B.Tech in Computer Science and Engineering @ NIT Rourkela (Batch 2027)",
+        "Ex-Data Analyst Intern @ Gazebo Labs (IIT Bhubaneswar Research Park)",
+        "Building web products, backend microservices, and distributed systems.",
       ];
     } else if (command === "projects") {
-      output = projects.map((project) => `${project.number}  ${project.name}`);
+      output = projects.map((project) => `${project.number}  ${project.name} [${project.category}]`);
     } else if (command === "stack") {
       output = [
-        "React / Next.js / TypeScript",
-        "Node.js / Fastify / Express",
-        "PostgreSQL / MongoDB / Firebase",
-        "Git / GitHub / Docker / Postman",
+        "LANGUAGES: TypeScript, JavaScript, Python, C++, SQL, HTML5, CSS3",
+        "FRONTEND: React.js, Next.js, Tailwind CSS, Responsive UI/UX",
+        "BACKEND: Node.js, Fastify, Express.js, RESTful APIs, Better-Auth, Stripe API",
+        "DATABASES & DEVOPS: PostgreSQL, Neon DB, Drizzle ORM, Redis, Docker, Git, Jest",
       ];
+    } else if (command === "experience") {
+      output = [
+        "WORK EXPERIENCE",
+        "---------------",
+        "Gazebo Labs Private Limited (IIT Bhubaneswar Research Park)",
+        "Role: Data Analyst Intern – Data & Business Intelligence Division",
+        "Duration: June 2026 – Aug 2026 | Bhubaneswar, India",
+        "• Validated IoT aquaculture device telemetry and sensor streams.",
+        "• Built real-time Python/SQL device health and metrics dashboards.",
+        "• Automated analytical reports, reducing turnaround time by 70%.",
+      ];
+    } else if (command === "certificates") {
+      openWindow("certificates");
+      output = ["Opening certificates directory..."];
+    } else if (command === "achievements") {
+      openWindow("achievements");
+      output = ["Opening achievements directory..."];
+    } else if (command === "resume") {
+      window.open("/VIVEKDAMAR_FTE_RESUME.pdf", "_blank");
+      output = ["Opening VIVEKDAMAR_FTE_RESUME.pdf..."];
     } else if (command === "contact") {
       output = [
         "EMAIL: vivekdamar28@gmail.com",
+        "PHONE: (+91) 9303316127",
         "GITHUB: github.com/vivekstackk",
         "LINKEDIN: linkedin.com/in/vivek-damar",
       ];
@@ -637,7 +775,11 @@ ${message}
 
                 <div className="side-label">EDUCATION</div>
 
-                <div className="side-value">NIT ROURKELA</div>
+                <div className="side-value">NIT ROURKELA (B.TECH CSE &apos;27)</div>
+
+                <div className="side-label">EXPERIENCE</div>
+
+                <div className="side-value">GAZEBO LABS (IIT BHUBANESWAR)</div>
               </div>
 
               <div>
@@ -646,31 +788,31 @@ ${message}
                 <h1>About Me</h1>
 
                 <p className="about-lead">
-                  I&apos;m Vivek — a computer science student, full-stack
-                  developer and creative builder interested in the space
-                  between engineering and visual design.
+                  I&apos;m Vivek — a computer science student at NIT Rourkela, full-stack
+                  developer and creative builder interested in scalable backend systems and product engineering.
                 </p>
 
                 <p className="about-copy">
-                  I build web products, backend systems and experiments with
-                  an emphasis on clean architecture, useful interfaces and
-                  thoughtful user experiences.
+                  I build web products, backend microservices and distributed systems with
+                  an emphasis on clean architecture, useful interfaces and resilient data handling.
+                  Previously interned as a Data Analyst Intern at Gazebo Labs (IIT Bhubaneswar Research Park),
+                  where I optimized IoT telemetry streams and built real-time analytics dashboards.
                 </p>
 
                 <div className="about-stats">
                   <div>
                     <span>FOCUS</span>
-                    <strong>FULL-STACK DEVELOPMENT</strong>
+                    <strong>FULL-STACK &amp; BACKEND</strong>
                   </div>
 
                   <div>
-                    <span>BACKEND</span>
-                    <strong>NODE / FASTIFY / DATABASES</strong>
+                    <span>STACK</span>
+                    <strong>NEXT.JS / FASTIFY / POSTGRES</strong>
                   </div>
 
                   <div>
                     <span>INTEREST</span>
-                    <strong>SYSTEM DESIGN</strong>
+                    <strong>DISTRIBUTED SYSTEMS &amp; CP</strong>
                   </div>
                 </div>
               </div>
@@ -726,10 +868,11 @@ ${message}
               <div
                 className="document-card"
                 onClick={() => openWindow("certificates")}
+                style={{ cursor: "pointer" }}
               >
                 <div className="document-icon">🏆</div>
                 <strong>Certificates</strong>
-                <span>Open folder</span>
+                <span>Open folder · {certificates.length} items</span>
               </div>
 
               <div
@@ -739,27 +882,35 @@ ${message}
               >
                 <div className="document-icon">📄</div>
                 <strong>Resume.pdf</strong>
-                <span>Click to view</span>
+                <span>Click to view · PDF</span>
               </div>
 
-              <div className="document-card">
+              <div
+                className="document-card"
+                onClick={() => openWindow("readme")}
+                style={{ cursor: "pointer" }}
+              >
                 <div className="document-icon">📋</div>
                 <strong>README.txt</strong>
-                <span>Personal information</span>
+                <span>Personal overview</span>
               </div>
 
-              <div className="document-card">
+              <div
+                className="document-card"
+                onClick={() => openWindow("achievements")}
+                style={{ cursor: "pointer" }}
+              >
                 <div className="document-icon">⭐</div>
                 <strong>Achievements</strong>
-                <span>Placeholder folder</span>
+                <span>Open folder · {achievements.length} items</span>
               </div>
             </div>
 
             <div className="placeholder-note">
-              <strong>DOCUMENT SYSTEM</strong>
+              <strong>DOCUMENT SYSTEM / VIVEK_OS</strong>
               <p>
-                This folder is ready for future resumes, certificates,
-                achievements and other professional documents.
+                Browse verified certificates, official resume, comprehensive README,
+                and competition achievements curated directly from Vivek Damar&apos;s credentials.
               </p>
             </div>
           </div>
@@ -772,22 +923,101 @@ ${message}
               My Computer → Documents → Certificates
             </div>
 
-            {[1, 2, 3].map((number) => (
-              <div className="certificate-row" key={number}>
-                <div className="certificate-icon">🏆</div>
+            {certificates.map((cert) => (
+              <div
+                className={`certificate-row ${cert.url ? "is-clickable" : ""}`}
+                key={cert.number}
+                onClick={() => {
+                  if (cert.url) {
+                    window.open(cert.url, "_blank", "noopener,noreferrer");
+                  }
+                }}
+              >
+                <div className="certificate-icon">{cert.icon}</div>
 
                 <div>
-                  <strong>Certificate {String(number).padStart(2, "0")}</strong>
-                  <span>Certificate title — placeholder</span>
+                  <strong>{cert.title}</strong>
+                  <div className="certificate-meta">
+                    <span>{cert.issuer}</span>
+                    <span>•</span>
+                    <span>{cert.duration}</span>
+                  </div>
+                  <p>{cert.description}</p>
                 </div>
 
-                <div className="certificate-status">AVAILABLE SOON</div>
+                <div>
+                  {cert.url ? (
+                    <a
+                      className="certificate-action-badge"
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {cert.status}
+                    </a>
+                  ) : (
+                    <div className="certificate-status">{cert.status}</div>
+                  )}
+                </div>
               </div>
             ))}
 
             <div className="certificate-footer">
-              Add certificate files later inside:
-              <code>/public/certificates/</code>
+              All credentials verified from Vivek Damar&apos;s portfolio &amp; Google Drive repository.
+            </div>
+          </div>
+        );
+
+      case "achievements":
+        return (
+          <div className="achievements-page">
+            <div className="breadcrumb">
+              My Computer → Documents → Achievements
+            </div>
+
+            {achievements.map((item) => (
+              <div
+                className={`achievement-row ${item.url ? "is-clickable" : ""}`}
+                key={item.number}
+                onClick={() => {
+                  if (item.url) {
+                    window.open(item.url, "_blank", "noopener,noreferrer");
+                  }
+                }}
+              >
+                <div className="achievement-icon">{item.icon}</div>
+
+                <div>
+                  <strong>{item.title}</strong>
+                  <div className="achievement-meta">
+                    <span>{item.organization}</span>
+                    <span>•</span>
+                    <span>{item.date}</span>
+                  </div>
+                  <p>{item.description}</p>
+                </div>
+
+                <div>
+                  {item.url ? (
+                    <a
+                      className="achievement-badge"
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      VIEW CERTIFICATE ↗
+                    </a>
+                  ) : (
+                    <div className="achievement-status">{item.badge}</div>
+                  )}
+                </div>
+              </div>
+            ))}
+
+            <div className="achievement-footer">
+              Highlights across competitive programming, hackathons, industry internships, and academic milestones.
             </div>
           </div>
         );
@@ -853,32 +1083,72 @@ ${message}
       case "readme":
         return (
           <div className="readme-page">
-            <div className="readme-line"># VIVEK DAMAR</div>
+            <div className="readme-line"># VIVEK DAMAR — README.txt</div>
 
             <p>
-              Full-Stack Developer building web products and backend systems.
+              Hi, I&apos;m Vivek Damar — a Computer Science &amp; Engineering student at NIT Rourkela and a Full-Stack Developer building modern web products, backend architectures, and developer systems.
             </p>
 
             <div className="readme-block">
-              <span>ROLE</span>
-              <strong>FULL-STACK DEVELOPER</strong>
+              <span>CURRENT STATUS</span>
+              <strong>B.TECH IN COMPUTER SCIENCE &amp; ENGINEERING @ NIT ROURKELA (BATCH OF 2027)</strong>
             </div>
 
             <div className="readme-block">
-              <span>EDUCATION</span>
-              <strong>COMPUTER SCIENCE — NIT ROURKELA</strong>
-            </div>
-
-            <div className="readme-block">
-              <span>INTERESTS</span>
+              <span>WORK EXPERIENCE</span>
               <strong>
-                BACKEND SYSTEMS · PRODUCT ENGINEERING · CREATIVE UI
+                DATA ANALYST INTERN @ GAZEBO LABS (IIT BHUBANESWAR RESEARCH PARK) — JUNE 2026 TO AUG 2026
+                <br />
+                Cleaned IoT aquaculture telemetry, built real-time Python/SQL dashboards, and automated report pipelines cutting turnaround by 70%.
               </strong>
             </div>
 
             <div className="readme-block">
-              <span>OPEN TO</span>
-              <strong>SDE INTERNSHIPS · FULL-TIME OPPORTUNITIES</strong>
+              <span>KEY PROJECTS</span>
+              <strong>
+                • SEATWISE — Real-time event ticketing with dynamic seat maps, SELECT FOR UPDATE locking &amp; Stripe
+                <br />
+                • FLAGWISE — High-throughput feature flag microservice with Redis caching &amp; &lt;5ms latency
+                <br />
+                • DISTRIBUTED JOB SCHEDULER — Multi-worker scheduler with SKIP LOCKED queues &amp; Dead-Letter Queue
+              </strong>
+            </div>
+
+            <div className="readme-block">
+              <span>TECHNICAL SKILLS</span>
+              <strong>
+                TypeScript, JavaScript (ES6+), Python, C++, SQL, React.js, Next.js, Fastify, Node.js, Express, PostgreSQL, Redis, Docker, Tailwind CSS
+              </strong>
+            </div>
+
+            <div className="readme-block">
+              <span>ACHIEVEMENTS</span>
+              <strong>
+                • Problem Setter @ Algorithmic &amp; Programming Society, NIT Rourkela (Curated 30+ contest challenges)
+                <br />
+                • Participant @ Hack Innovision 36-Hour National Hackathon (NIT Rourkela)
+              </strong>
+            </div>
+
+            <div className="readme-block">
+              <span>EDUCATION</span>
+              <strong>
+                • NIT Rourkela — B.Tech in CSE (Expected 2027, CGPA: 6.59)
+                <br />
+                • Jawahar Navodaya Vidyalaya (JNV), Jhabua — Class XII (81.2%) &amp; Class X (87.2%)
+              </strong>
+            </div>
+
+            <div className="readme-block">
+              <span>CONTACT &amp; LINKS</span>
+              <strong>
+                EMAIL: vivekdamar28@gmail.com · PHONE: (+91) 9303316127 · GITHUB: github.com/vivekstackk · LINKEDIN: linkedin.com/in/vivek-damar
+              </strong>
+            </div>
+
+            <div className="readme-block">
+              <span>PHILOSOPHY</span>
+              <strong>&quot;Build. Learn. Ship. Repeat.&quot; — Prefer simple systems, readable code, and software that solves real problems.</strong>
             </div>
           </div>
         );
@@ -1225,6 +1495,12 @@ ${message}
         />
 
         <DesktopIcon
+          icon="⭐"
+          label="ACHIEVEMENTS"
+          onClick={() => openWindow("achievements")}
+        />
+
+        <DesktopIcon
           icon="@"
           label="CONTACT"
           onClick={() => openWindow("contact")}
@@ -1396,6 +1672,12 @@ ${message}
                 icon="🏆"
                 label="Certificates"
                 onClick={() => openWindow("certificates")}
+              />
+
+              <StartItem
+                icon="⭐"
+                label="Achievements"
+                onClick={() => openWindow("achievements")}
               />
 
               <StartItem
