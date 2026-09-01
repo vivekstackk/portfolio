@@ -732,10 +732,14 @@ ${message}
                 <span>Open folder</span>
               </div>
 
-              <div className="document-card">
+              <div
+                className="document-card"
+                onClick={() => window.open("/VIVEKDAMAR_FTE_RESUME.pdf", "_blank")}
+                style={{ cursor: "pointer" }}
+              >
                 <div className="document-icon">📄</div>
                 <strong>Resume.pdf</strong>
-                <span>Coming soon</span>
+                <span>Click to view</span>
               </div>
 
               <div className="document-card">
