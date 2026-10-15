@@ -138,10 +138,10 @@ const certificates = [
     title: "Official Resume / Curriculum Vitae",
     issuer: "Vivek Damar · NIT Rourkela",
     division: "Full-Time & SDE Internship Resume",
-    duration: "Updated 2026",
+    duration: "Updated Oct 2026",
     description:
       "Complete resume detailing engineering projects, technical stack, distributed systems experience, academic record, and contact details.",
-    url: "/VIVEKDAMAR_FTE_RESUME.pdf",
+    url: "/resume.pdf",
     status: "PDF DOCUMENT ↗",
     icon: "📄",
   },
@@ -669,8 +669,8 @@ ${message}
       openWindow("achievements");
       output = ["Opening achievements directory..."];
     } else if (command === "resume") {
-      window.open("/VIVEKDAMAR_FTE_RESUME.pdf", "_blank");
-      output = ["Opening VIVEKDAMAR_FTE_RESUME.pdf..."];
+      window.open("/resume.pdf", "_blank");
+      output = ["Opening resume.pdf..."];
     } else if (command === "contact") {
       output = [
         "EMAIL: vivekdamar28@gmail.com",
@@ -877,7 +877,7 @@ ${message}
 
               <div
                 className="document-card"
-                onClick={() => window.open("/VIVEKDAMAR_FTE_RESUME.pdf", "_blank")}
+                onClick={() => window.open("/resume.pdf", "_blank")}
                 style={{ cursor: "pointer" }}
               >
                 <div className="document-icon">📄</div>
