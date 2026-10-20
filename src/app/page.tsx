@@ -193,11 +193,11 @@ const achievements = [
   },
   {
     number: "04",
-    title: "Academic Excellence & Navodaya Alumnus",
+    title: "Academic Background & Navodaya Alumnus",
     organization: "NIT Rourkela & JNV Jhabua",
     badge: "ACADEMICS",
     description:
-      "Pursuing B.Tech in Computer Science and Engineering at NIT Rourkela (CGPA: 6.59). Completed Class XII CBSE Science PCM with 81.2% and Class X with 87.2% at Jawahar Navodaya Vidyalaya.",
+      "Pursuing B.Tech in Computer Science and Engineering at NIT Rourkela. Completed Class XII CBSE Science (PCM) and Class X at Jawahar Navodaya Vidyalaya.",
     date: "2019 – 2027",
     icon: "🎓",
   },
@@ -1133,9 +1133,9 @@ ${message}
             <div className="readme-block">
               <span>EDUCATION</span>
               <strong>
-                • NIT Rourkela — B.Tech in CSE (Expected 2027, CGPA: 6.59)
+                • NIT Rourkela — B.Tech in CSE (Expected 2027)
                 <br />
-                • Jawahar Navodaya Vidyalaya (JNV), Jhabua — Class XII (81.2%) &amp; Class X (87.2%)
+                • Jawahar Navodaya Vidyalaya (JNV), Jhabua — Class XII &amp; Class X
               </strong>
             </div>
 
